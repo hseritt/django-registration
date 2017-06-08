@@ -72,7 +72,7 @@ urlpatterns = [
 ]
 ```
 
-Run migrations to your database:
+Run migrations to your database. This will install the registration_userprofile table to your database:
 
 ```
 # ./manage.py migrate
@@ -105,4 +105,55 @@ Ran 5 tests in 0.210s
 
 OK
 Destroying test database for alias 'default'...
+```
+
+## Customizations
+
+### How do I ...
+
+#### Change output for the registration form, footer text, invalidation message, registration message and verification message?
+
+Make changes to the messages.py file. This will render different output for those pages.
+
+#### Make changes to the default display?
+
+Modify the registration.css page in static/css directory.
+
+#### Use a different format for the registration form?
+
+See this page to make changes to how the form is rendered: [https://docs.djangoproject.com/en/1.11/topics/forms/#form-rendering-options](https://docs.djangoproject.com/en/1.11/topics/forms/#form-rendering-options)
+
+You can simply change this in index.html from:
+
+```
+<fieldset>
+  <legend>{{ fieldset_legend }}</legend>
+  {% if register_user_form.non_field_errors %}
+    <ul>
+    {% for error in register_user_form.non_field_errors %}
+      <li class="error">{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% for field in register_user_form %}
+    {{ field.label }}<br>
+    {{ field }}<br>
+  {% endfor %}
+  <input type="submit" value="Register" id="submit_user" />
+</fieldset>
+```
+
+to
+
+```
+<fieldset>
+  <legend>{{ fieldset_legend }}</legend>
+  {{ register_user_form.as_table }}
+  <!-- or 
+  {{ register_user_form.as_p }}
+       or
+  {{ register_user_form.as_ul }}
+  -->
+  <input type="submit" value="Register" id="submit_user" />
+</fieldset>
 ```
