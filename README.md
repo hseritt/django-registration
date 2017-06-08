@@ -2,7 +2,7 @@
 
 A user registration app for your Django project. Very simple to configure and customize.
 
-Out of the box, point your user to http://<hostname><:port>/registration/
+Out of the box, point your user to http://[hostname:port]/registration/
 
 After validating input, the app will verify the user's email address before activating the user in the system.
 
