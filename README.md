@@ -2,6 +2,10 @@
 
 A user registration app for your Django project. Very simple to configure and customize.
 
+Out of the box, point your user to http://<hostname><:port>/registration/
+
+After validating input, the app will verify the user's email address before activating the user in the system.
+
 ## Setup
 
 Download the Registration app from [https://github.com/hseritt/django-registration/archive/master.zip](https://github.com/hseritt/django-registration/archive/master.zip):
@@ -81,3 +85,24 @@ Start the Django dev server:
 ```
 
 Open browser to [http://localhost:8000/registration/](http://localhost:8000/registration/)
+
+## Unit Tests
+
+If you're interested, here is how to run the tests:
+
+```
+# ./manage.py test
+```
+
+If all runs as expected, you should see:
+
+```
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.210s
+
+OK
+Destroying test database for alias 'default'...
+```
