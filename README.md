@@ -111,15 +111,15 @@ Destroying test database for alias 'default'...
 
 ### How do I ...
 
-#### Change output for the registration form, footer text, invalidation message, registration message and verification message?
+* ... Change output for the registration form, footer text, invalidation message, registration message and verification message?
 
 Make changes to the messages.py file. This will render different output for those pages.
 
-#### Make changes to the default display?
+* ... Make changes to the default display?
 
 Modify the registration.css page in static/css directory.
 
-#### Use a different format for the registration form?
+* ... Use a different format for the registration form?
 
 See this page to make changes to how the form is rendered: [https://docs.djangoproject.com/en/1.11/topics/forms/#form-rendering-options](https://docs.djangoproject.com/en/1.11/topics/forms/#form-rendering-options)
 
