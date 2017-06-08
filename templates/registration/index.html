@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>{{ page_title }}</title>
+	<link rel="stylesheet" href="{% static 'css/registration.css' %}">
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script>
+		$(document).ready(function() {
+			$("input#submit_user").click(function() {
+				
+				var password = document.getElementById("id_password").value;
+				var passwordConfirm = document.getElementById("id_password_confirm").value;
+
+				if (password !== passwordConfirm) {
+					alert("Passwords must match.");
+					return false;
+				} else {
+					return true;
+				}
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<section class="page">
+		<section class="top">
+			{% include 'registration/header.html' %}
+		</section>
+		<section class="content">
+		  <h1>Registration</h1>
+	      
+	      <form action="" method="POST">
+	        {% csrf_token %}
+	        <fieldset>
+	          <legend>{{ fieldset_legend }}</legend>
+	          {% if register_user_form.non_field_errors %}
+	            <ul>
+	            {% for error in register_user_form.non_field_errors %}
+	              <li class="error">{{ error }}</li>
+	            {% endfor %}
+	            </ul>
+	          {% endif %}
+	          {% for field in register_user_form %}
+	            {{ field.label }}<br>
+	            {{ field }}<br>
+	          {% endfor %}
+	          <input type="submit" value="Register" id="submit_user" />
+	        </fieldset>
+	      </form>
+		
+		</section>
+		<section class="bottom">
+			{% include 'registration/footer.html' %}
+		</section>
+	</section>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* registration.css */
+
+.page, .top, .content {
+	margin: 20px;
+}
+
+li.error {
+	color: red;
+}
+
+fieldset {
+	width: 30%;
+	padding: 30px;
+}
+
+input, label {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+footer {
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background-color: black;
+	color: white;
+	position: fixed;
+	padding: 10px;
+}
